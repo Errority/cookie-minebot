@@ -10,7 +10,7 @@ module.exports = bot => {
     bot.once('spawn', () => {
         mcdata = require('minecraft-data')(bot.version);
     });
-
+    
     bot.on('chat', (name, msg) => {
         const args = msg.split(' ');
         if (args[0] != 'collect' || name != owner) return;

@@ -20,9 +20,5 @@ function loadPlugins(bot) {
     bot.loadPlugin(collect);
 };
 
-function init() {
-    const bot = mineflayer.createBot(login);
-    loadPlugins(bot);
-};
-
-init();
+const bot = mineflayer.createBot(login);
+loadPlugins(bot);
