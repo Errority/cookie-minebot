@@ -1,6 +1,9 @@
 const { owner } = require('../../config');
 const mineflayer = require('mineflayer');
 
+/**
+ * @param {mineflayer.Bot} bot 
+ */
 module.exports = bot => {
     let mcdata;
 
