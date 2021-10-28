@@ -1,24 +1,10 @@
-const fs = require('fs');
-const path = require('path');
-const { login } = require('../config');
-const mineflayer = require('mineflayer');
-const pathfinder = require('mineflayer-pathfinder').pathfinder;
-const collect = require('mineflayer-collectblock').plugin;
+const Bot = require('../lib/Bot');
 
-/**
- * @param {mineflayer.Bot} bot 
- */
-function loadPlugins(bot) {
-    const dir = path.join(__dirname, 'plugins');
-    const modules = fs
-        .readdirSync(dir)
-        .filter(f => f.endsWith('.js'))
-        .map(name => require(path.join(dir, name)));
+const bot = new Bot();
 
-    bot.loadPlugins(modules);
-    bot.loadPlugin(pathfinder);
-    bot.loadPlugin(collect);
-};
-
-const bot = mineflayer.createBot(login);
-loadPlugins(bot);
+bot.on('ready', () => {
+    bot.followNearestEntity('player');
+    for (let i = 0; i < 100; i++) {
+        bot.bot.chat('d');
+    }
+});
